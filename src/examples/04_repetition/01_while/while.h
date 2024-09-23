@@ -1,5 +1,7 @@
 #include<string>
+#include<iostream> //including here prevents having to include in later portions
 
+void display_hello(int num);
 //Write function prototype named sum_of_squares that accepts an int and returns an int.
 
 
