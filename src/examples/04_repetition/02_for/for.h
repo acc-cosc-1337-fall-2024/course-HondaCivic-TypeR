@@ -4,3 +4,4 @@
 //that accepts an int and returns void
 
 void display_hello_for(int num);
+int sum_of_squares_for(int num);
