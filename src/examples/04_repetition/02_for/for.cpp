@@ -1,4 +1,5 @@
 #include "for.h"
+using std::cout; using std::cin; using std::setw;
 
 using std::cout;
 
@@ -36,3 +37,15 @@ RESULT:
 
 */
 
+void for_multiplication(const int rows, const int cols) //defensive programming
+{
+    for(auto i = 0; i < rows; i++)
+    {
+        for(auto j = 0; j < cols; j++)
+        {
+            cout<<setw(4)<<(i + 1) * (j + 1);
+        }
+
+        cout<<"\n";
+    }
+}
