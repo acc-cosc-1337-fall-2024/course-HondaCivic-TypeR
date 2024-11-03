@@ -15,23 +15,40 @@ int main()
 
     do
     {
-        cout<<"Please enter either 'X or 'O' for your first player: ";
+        cout<<"Player One, please choose your character. \n";
+        cout<<"'X'   'O' \n";
         cin>>first_player;
 
-        game.start_game(first_player);
-
-        int position;
-
-        while(!game.game_over())
+        while (first_player == "X" || first_player == "O")
         {
-            cout<<"Choose a position on the board: ";
-            cin>>position;
-            game.mark_board(position);
-			game.display_board();
-        }
+            game.start_game(first_player);
+            int position;
 
+            while(!game.game_over())
+            {
+                cout<<"Choose a position on the board: ";
+                cin>>position;
+                game.mark_board(position);
+                game.display_board();
+            }
+
+        cout<<"The winner is "<<game.get_winner()<<"\n\n";
         cout<<"Would you like to play again? \n";
         cin>>entry;
+
+        if(entry == 'N' || entry == 'n')
+        {
+            cout<<"Ending game.\n";
+            break;
+        }
+
+        else
+        {
+            cout<<"Player One, please choose your character. \n";
+            cout<<"'X'   'O' \n";
+            cin>>first_player;
+        }
+        }
 
     }while(entry == 'Y' || entry == 'y');
     
