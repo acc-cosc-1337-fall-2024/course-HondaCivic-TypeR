@@ -1,12 +1,22 @@
 //cpp
 #include "tic_tac_toe_manager.h"
+#include <utility>
 
+using std::move;
+
+void TicTacToeManager::display() const
+{
+    for(const auto& game : games)
+    {
+        game->display_board();
+    }
+}
 
 //PUBLIC
-void TicTacToeManager::save_game(TicTacToe b)
+void TicTacToeManager::save_game(std::unique_ptr<TicTacToe> &game)
 {
-    games.push_back(b);
-    update_winner_count(b.get_winner());
+    update_winner_count(game->get_winner());
+    games.push_back(move(game));
 }
 
 

@@ -1,17 +1,20 @@
 //h
 #include "tic_tac_toe.h"
+#include<memory>
 
 #ifndef TIC_TAC_TOE_MANAGER_H
 #define TIC_TAC_TOE_MANAGER_H
 
 class TicTacToeManager
 {
+void display() const;
+
 public:
-    void save_game(TicTacToe b);
+    void save_game(std::unique_ptr<TicTacToe> &game);
     void get_winner_total(int& o, int& x, int& t){o = o_win; x = x_win; t = ties;}
 
 private:
-    std::vector<TicTacToe> games;
+    std::vector<std::unique_ptr<TicTacToe>> games;
     int x_win = 0;
     int o_win = 0;
     int ties = 0;
